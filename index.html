@@ -1,5 +1,16 @@
 <title>検索ツール</title>
 <link rel="icon" href="https://scfcdv.github.io/homeweb2/favicon.ico">
+<script>
+function convertTime() {
+var inputHour = parseInt(document.getElementById('hour').value);
+var inputMinute = parseInt(document.getElementById('minute').value);
+var inputSecond = parseInt(document.getElementById('second').value);
+var totalSeconds = (inputHour * 3600) + (inputMinute * 60) + inputSecond;
+var convertedHour = Math.floor(totalSeconds / 3600);
+var convertedMinute = Math.floor((totalSeconds % 3600) / 60);
+var convertedSecond = totalSeconds % 60;
+document.getElementById('result').innerHTML = "変換結果: " + convertedHour + "時 " + convertedMinute + "分 " + convertedSecond + "秒";}
+</script>
 <form>
 <input type="text" id="myInput">
 <button type="button" onclick="myFunction2()">yahoo検索</button><br>
@@ -40,6 +51,11 @@ window.open(UserInput4, '_blank')}
 <form oninput="result.value = Number(a.value) ** Number(b.value);"><input type="number" name="a" id="a" size="5"> ^ <input type="number" name="b" id="b" size="5"> ＝ <output name="result">0</output></form></form></form></form></form></form>
 </iframe><button type=button>google</button></a><a href="https://chat.openai.com/chat"><button type=button>chat gpt</button><a href="https://classroom.google.com/u/0/h?hl=ja"><button type=button>Classroom</button><a href="https://translate.google.com/?hl=ja&sl=en&tl=ja&text=&op=translate"><button type=button>google翻訳</button><a href="https://scratch.mit.edu/studios/1168062"><button type=button>スクラッチ</button></a></a></a></a><a href="https://bard.google.com/?utm_source=HPP&utm_medium=Owned&utm_campaign=bardhppJA_JP"><button type=button>bard</button></a>
 <p id="RealtimeClockArea2"></p>
+<label>時: <input type="number" id="hour"></label><br>
+<label>分: <input type="number" id="minute"></label><br>
+<label>秒: <input type="number" id="second"></label><br>
+<button onclick="convertTime()">変換</button><br>
+<p id="result"></p>
 <script>
 function set2fig(num) {
 var ret;
